@@ -11,7 +11,7 @@ TEST = ["word", "word", "word", "test", "the", "time", "time"]
 
 # Return frequency of string word 
 def word_freq(word, l):
-    return reduce(lambda x, y: x + y, [1 for i in l if i == word.lower()])
+    return reduce(lambda x, y: x + y, [1 for i in l if i == word.lower()] + [0 for i in l if i != word.lower()])
 
 # Return total frequency of list words
 def words_freq(words, l):
@@ -19,7 +19,9 @@ def words_freq(words, l):
 
 # Return most frequent word
 def top_word(l):
-    return reduce((lambda x, y: x if word_freq(x, l) > word_freq(y, l) else y), l)
+    unique = []
+    x = [unique.append(w) for w in BOOK if w not in unique]
+    return reduce((lambda x, y: x if word_freq(x, l) > word_freq(y, l) else y), unique)
 
 #print story
 print word_freq("Dorian", BOOK)
