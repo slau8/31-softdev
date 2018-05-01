@@ -1,10 +1,19 @@
+#n-cubed
+#Shannon Lau and Helen Ye
+#SoftDev2 pd7
+#K18 -- Reductio ad Absurdum
+#2018-05-01   
+
 from functools import reduce
 
+# Text file stored as string
 with open("doriangray.txt", 'r') as f:
     story = f.read()
 
+# Split string by whitespace into array
 BOOK = story.split()
 
+# Remove punctuation marks from each element
 BOOK = [x.strip(".,!:;?\"'()[]/-").lower() for x in BOOK]
 
 TEST = ["word", "word", "word", "test", "the", "time", "time"]
